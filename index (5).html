@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipariya Yatri | Personal Blog & Thoughts</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--text:#1e2235;--muted:#6b7089;--pri:#6c4cf1;--pri2:#ec4899;--line:#e5e7f0;--shadow:0 8px 30px rgba(40,40,90,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo b{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;display:grid;place-items:center;font-size:16px}
+.logo span{font-weight:700;line-height:1.2}
+.logo small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+nav a{margin-left:22px;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--pri)}
+nav a.cta{background:var(--pri);color:#fff;padding:8px 16px;border-radius:999px}
+.hero{padding:70px 0 50px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.tag{display:inline-block;background:#ece8ff;color:var(--pri);padding:5px 14px;border-radius:999px;font-size:13px;font-weight:600}
+.hero h1{font-size:46px;line-height:1.15;margin:16px 0}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--pri),var(--pri2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:17px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.fact small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.fact b{font-size:15px;word-break:break-word}
+.profile{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:30px;text-align:center}
+.avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:38px;font-weight:700;display:grid;place-items:center}
+.profile h2{font-size:20px}
+.enroll{display:inline-block;margin:8px 0;background:#111827;color:#fff;padding:5px 14px;border-radius:8px;font-size:14px;letter-spacing:1px}
+.profile p{color:var(--muted);font-size:14px;margin-top:8px}
+.stats{display:flex;justify-content:center;gap:34px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.stats b{display:block;font-size:24px;color:var(--pri)}
+.stats span{font-size:12px;color:var(--muted)}
+section{padding:40px 0}
+.st{font-size:28px;font-weight:700}
+.sd{color:var(--muted);margin-bottom:22px}
+.form{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fafbff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pri);border-color:transparent}
+textarea{min-height:120px;resize:vertical}
+.row{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 20px;font-weight:600}
+.b1{background:linear-gradient(90deg,var(--pri),var(--pri2));color:#fff}
+.b2{background:#eef0f7;color:var(--text)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.chips button{background:#fff;border:1px solid var(--line);padding:7px 15px;margin:0 6px 6px 0;border-radius:999px;font-size:13px;color:var(--muted)}
+.chips button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tools input{max-width:260px}
+.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.post{background:var(--card);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.post img{width:100%;height:190px;object-fit:cover;background:#ddd}
+.pb{padding:18px;display:flex;flex-direction:column;flex:1}
+.cat{font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:1px}
+.post h3{margin:6px 0;font-size:19px;line-height:1.3}
+.by{font-size:12px;color:var(--muted)}
+.post p{color:#4b5068;font-size:14px;margin:10px 0;white-space:pre-line;flex:1}
+.acts{display:flex;gap:14px;font-size:14px;border-top:1px solid var(--line);padding-top:12px}
+.acts button{background:none;padding:0;color:var(--muted);font-weight:500}
+.acts button:hover{color:var(--pri2)}
+.acts .del{margin-left:auto}
+.cm{display:none;margin-top:12px}
+.cm.open{display:block}
+.cm div.c{background:#f3f4fa;border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:6px}
+.cm form{display:flex;gap:6px;margin-top:6px}
+.cm input{padding:8px 10px}
+.cm button{padding:8px 14px;background:var(--pri);color:#fff}
+.empty{text-align:center;color:var(--muted);padding:40px}
+footer{margin-top:40px;background:#161a2e;color:#c9cde4;text-align:center;padding:30px 20px;font-size:14px}
+footer b{color:#fff}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}.grid2{grid-template-columns:1fr}nav a:not(.cta){display:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a href="#top" class="logo"><b>PY</b><span>Pipariya Yatri<small>25SE02ML491</small></span></a>
+  <nav><a href="#about">About</a><a href="#blogs">Articles</a><a class="cta" href="#new-post">Write Post</a></nav>
+</div></header>
+
+<main id="top" class="wrap">
+  <div class="hero" id="about">
+    <div>
+      <span class="tag">Student &amp; Tech Explorer</span>
+      <h1>Hi, I'm <em>Pipariya Yatri.</em></h1>
+      <p>Welcome to my personal digital journal! This space is dedicated to my college projects, web application development adventures, and personal stories from my learning journey in Gujarat.</p>
+      <div class="facts">
+        <div class="fact"><small>Name</small><b>Y A T R I</b></div>
+        <div class="fact"><small>Surname</small><b>P I P A R I Y A</b></div>
+        <div class="fact"><small>Father's Name</small><b>Ashvinbhai</b></div>
+        <div class="fact"><small>Enrollment No.</small><b>25SE02ML491</b></div>
+      </div>
+    </div>
+    <div class="profile">
+      <div class="avatar">PY</div>
+      <h2>Pipariya Yatri Ashvinbhai</h2>
+      <span class="enroll">25SE02ML491</span>
+      <p>Web App Development Final Project</p>
+      <p>Built with pure HTML5, CSS3 and client-side JavaScript. Interactive blog posting, live image uploads, dynamic search, comments, and localStorage persistence.</p>
+      <div class="stats"><div><b id="sPosts">0</b><span>Published Posts</span></div><div><b id="sLikes">0</b><span>Reader Likes</span></div></div>
+    </div>
+  </div>
+
+  <section id="new-post">
+    <h2 class="st">Create a New Blog Post</h2>
+    <p class="sd">Publish your story with custom images and instant local saving.</p>
+    <form class="form" id="postForm">
+      <div class="grid2">
+        <div><label>Article Title *</label><input id="fTitle" required placeholder="Enter a title"></div>
+        <div><label>Author Name</label><input id="fAuthor" value="Pipariya Yatri Ashvinbhai"></div>
+        <div><label>Category</label><select id="fCat"><option>Personal Journey</option><option>Web Development</option><option>College Life</option><option>Travel &amp; Nature</option><option>General</option></select></div>
+        <div><label>Upload Image (Optional)</label><input type="file" id="fFile" accept="image/*"></div>
+      </div>
+      <label>Or Image Web URL</label><input id="fUrl" placeholder="https://...">
+      <label>Blog Content *</label><textarea id="fBody" required placeholder="Write your story here..."></textarea>
+      <div class="row"><button type="reset" class="b2">Clear</button><button type="submit" class="b1">Publish Article</button></div>
+    </form>
+  </section>
+
+  <section id="blogs">
+    <h2 class="st">Recent Publications</h2>
+    <p class="sd">Explore articles written by Pipariya Yatri and community contributors.</p>
+    <div class="tools">
+      <div class="chips" id="chips"></div>
+      <input id="search" type="search" placeholder="Search articles...">
+    </div>
+    <div class="posts" id="posts"></div>
+  </section>
+</main>
+
+<footer>Designed and Built by <b>Pipariya Yatri Ashvinbhai</b> (Enrollment No: <b>25SE02ML491</b>)<br>Web App Development Submission</footer>
+
+<script>
+// ---------- Generated illustrations (offline, no external files needed) ----------
+function art(c1,c2,kind){
+  var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></linearGradient></defs><rect width="800" height="450" fill="url(#g)"/>';
+  if(kind==='code'){
+    s+='<rect x="140" y="80" width="520" height="290" rx="18" fill="#0f172a" opacity=".92"/><circle cx="175" cy="110" r="8" fill="#f87171"/><circle cx="200" cy="110" r="8" fill="#fbbf24"/><circle cx="225" cy="110" r="8" fill="#34d399"/>';
+    var w=[[180,150,200,"#a78bfa"],[210,185,260,"#38bdf8"],[210,220,180,"#f472b6"],[240,255,300,"#34d399"],[210,290,140,"#fbbf24"],[180,325,220,"#a78bfa"]];
+    w.forEach(function(r){s+='<rect x="'+r[0]+'" y="'+r[1]+'" width="'+r[2]+'" height="12" rx="6" fill="'+r[3]+'"/>'});
+  }else if(kind==='campus'){
+    s+='<circle cx="620" cy="100" r="55" fill="#fde68a" opacity=".9"/><rect x="0" y="330" width="800" height="120" fill="#065f46" opacity=".55"/><rect x="220" y="170" width="360" height="170" fill="#fff" opacity=".95"/><polygon points="200,170 400,80 600,170" fill="#7c3aed"/>';
+    for(var i=0;i<5;i++){s+='<rect x="'+(250+i*68)+'" y="200" width="36" height="140" fill="#c4b5fd"/>'}
+    s+='<rect x="370" y="270" width="60" height="70" fill="#4c1d95"/>';
+  }else if(kind==='nature'){
+    s+='<circle cx="600" cy="110" r="60" fill="#fef3c7"/><polygon points="0,380 200,170 380,380" fill="#0f766e"/><polygon points="250,380 490,120 760,380" fill="#115e59"/><polygon points="490,120 440,190 490,175 530,195" fill="#fff" opacity=".9"/><rect y="370" width="800" height="80" fill="#064e3b"/>';
+  }else{
+    s+='<circle cx="400" cy="225" r="120" fill="#fff" opacity=".25"/><circle cx="400" cy="225" r="80" fill="#fff" opacity=".35"/><path d="M330 240 Q400 130 470 240 Q400 300 330 240Z" fill="#fff"/><circle cx="400" cy="225" r="26" fill="'+c2+'"/>';
+  }
+  s+='</svg>';
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+}
+
+var CATS=['Personal Journey','Web Development','College Life','Travel & Nature','General'];
+var seed=[
+ {id:1,title:'My First Steps into Web Development',author:'Pipariya Yatri Ashvinbhai',cat:'Web Development',img:art('#6c4cf1','#ec4899','code'),body:'Starting my web development journey has been exciting. I learned how HTML gives structure, CSS adds style, and JavaScript brings pages to life. This blog itself is my final project, built with pure vanilla code.',likes:18,comments:['Great start, keep going!'],date:'2026-09-12'},
+ {id:2,title:'A Day in My College Life',author:'Pipariya Yatri Ashvinbhai',cat:'College Life',img:art('#f59e0b','#ef4444','campus'),body:'Between lectures, labs, and late-night debugging sessions, college life teaches far more than the syllabus. Friends, deadlines, and small wins make every day memorable.',likes:14,comments:[],date:'2026-09-18'},
+ {id:3,title:'Finding Peace in Nature',author:'Pipariya Yatri Ashvinbhai',cat:'Travel & Nature',img:art('#0ea5e9','#22c55e','nature'),body:'Whenever coding gets stressful, a short trip into nature resets my mind. Mountains, greenery, and fresh air remind me to slow down and enjoy the journey.',likes:10,comments:['Beautiful thoughts.'],date:'2026-09-25'}
+];
+
+var KEY='pipariya_yatri_25SE02ML491_posts', posts, filter='All', q='';
+try{ var raw=localStorage.getItem(KEY); posts=raw?JSON.parse(raw):null; }catch(e){posts=null}
+if(!posts||!posts.length) posts=seed;
+function save(){ try{localStorage.setItem(KEY,JSON.stringify(posts))}catch(e){} }
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+
+function renderChips(){
+  var h='';['All'].concat(CATS).forEach(function(c){h+='<button class="'+(c===filter?'on':'')+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'});
+  document.getElementById('chips').innerHTML=h;
+}
+function render(){
+  var list=posts.filter(function(p){
+    return (filter==='All'||p.cat===filter)&&(p.title+' '+p.body+' '+p.author).toLowerCase().indexOf(q)>-1;
+  });
+  var h='';
+  list.forEach(function(p){
+    h+='<article class="post"><img src="'+p.img+'" alt="'+esc(p.title)+'" onerror="this.src=\''+art('#6c4cf1','#ec4899','x')+'\'">'+
+    '<div class="pb"><span class="cat">'+esc(p.cat)+'</span><h3>'+esc(p.title)+'</h3><div class="by">By '+esc(p.author)+' • '+esc(p.date)+'</div>'+
+    '<p>'+esc(p.body)+'</p>'+
+    '<div class="acts"><button data-like="'+p.id+'">❤ '+p.likes+'</button><button data-cm="'+p.id+'">💬 '+p.comments.length+'</button><button class="del" data-del="'+p.id+'">Delete</button></div>'+
+    '<div class="cm" id="cm'+p.id+'">'+p.comments.map(function(c){return '<div class="c">'+esc(c)+'</div>'}).join('')+
+    '<form data-form="'+p.id+'"><input placeholder="Add a comment..." required><button>Post</button></form></div></div></article>';
+  });
+  document.getElementById('posts').innerHTML=h||'<div class="empty">No articles found.</div>';
+  document.getElementById('sPosts').textContent=posts.length;
+  document.getElementById('sLikes').textContent=posts.reduce(function(a,p){return a+p.likes},0);
+}
+document.getElementById('chips').addEventListener('click',function(e){var c=e.target.dataset.c;if(c){filter=c;renderChips();render()}});
+document.getElementById('search').addEventListener('input',function(e){q=e.target.value.toLowerCase();render()});
+document.getElementById('posts').addEventListener('click',function(e){
+  var t=e.target, id;
+  if(id=t.dataset.like){posts.forEach(function(p){if(p.id==id)p.likes++});save();render()}
+  else if(id=t.dataset.cm){document.getElementById('cm'+id).classList.toggle('open')}
+  else if(id=t.dataset.del){if(confirm('Delete this article?')){posts=posts.filter(function(p){return p.id!=id});save();render()}}
+});
+document.getElementById('posts').addEventListener('submit',function(e){
+  e.preventDefault();var id=e.target.dataset.form,inp=e.target.querySelector('input');
+  posts.forEach(function(p){if(p.id==id)p.comments.push(inp.value.trim())});save();render();
+  var b=document.getElementById('cm'+id);if(b)b.classList.add('open');
+});
+
+var uploaded='';
+document.getElementById('fFile').addEventListener('change',function(e){
+  var f=e.target.files[0];if(!f)return;var r=new FileReader();
+  r.onload=function(){uploaded=r.result};r.readAsDataURL(f);
+});
+document.getElementById('postForm').addEventListener('reset',function(){uploaded=''});
+document.getElementById('postForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var cat=document.getElementById('fCat').value;
+  var pal={'Personal Journey':['#6c4cf1','#ec4899','x'],'Web Development':['#0ea5e9','#6366f1','code'],'College Life':['#f59e0b','#ef4444','campus'],'Travel & Nature':['#0ea5e9','#22c55e','nature'],'General':['#14b8a6','#8b5cf6','x']}[cat]||['#6c4cf1','#ec4899','x'];
+  var url=document.getElementById('fUrl').value.trim();
+  posts.unshift({id:Date.now(),title:document.getElementById('fTitle').value.trim(),author:document.getElementById('fAuthor').value.trim()||'Pipariya Yatri Ashvinbhai',cat:cat,
+    img:uploaded||url||art(pal[0],pal[1],pal[2]),body:document.getElementById('fBody').value.trim(),likes:0,comments:[],date:new Date().toISOString().slice(0,10)});
+  save();uploaded='';e.target.reset();filter='All';renderChips();render();
+  document.getElementById('blogs').scrollIntoView();
+});
+renderChips();render();
+</script>
+</body>
+</html>
